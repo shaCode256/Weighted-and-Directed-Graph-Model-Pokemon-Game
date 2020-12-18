@@ -75,7 +75,10 @@ public class Ex2 implements Runnable{
         }
         game.stopGame();
     }
-
+    /**
+     * Init the game: the methode gets data from the server, and updates the zone:
+     * the graph, agents, pokemons. Every agent was located on thr src of his pokemon
+     */
     private void init(game_service game) {
         zone=new Arena(game);
         zone.updatePoks2Arena(game);
@@ -93,7 +96,10 @@ public class Ex2 implements Runnable{
         frame.add(panel);
         frame.setVisible(true);
     }
-
+    /**
+     * In the first catch, every agent catches the pokemon, by order of value:
+     * The first one, catches the max value.
+     */
     private void firstCatch (game_service game){
         for (int i = 0; i < zone.getAgents().size(); i++)
             game.chooseNextEdge(i, zone.getAgents().get(i).getTarget().getDest());
@@ -103,7 +109,9 @@ public class Ex2 implements Runnable{
         for (int i = 0; i < zone.getAgents().size(); i++)
             zone.getAgents().get(i).setPokemonTaeget(pok_list.get(i));
     }
-
+    /**
+     * The main astrategy:
+     */
     private void pokemonsCatch(game_service game){
         zone.updatePoks2Arena(game);
         zone.updateAgents2Arena(game);
@@ -128,7 +136,9 @@ public class Ex2 implements Runnable{
         game.move();
     }
 
-
+    /**
+     * the methode sorts pokemon's list from the max value to minimum
+     */
         private static LinkedList<CL_Pokemon> max2MinValue (LinkedList < CL_Pokemon > pok_list) {
             LinkedList<CL_Pokemon> list = new LinkedList<>();
             int numPoks = pok_list.size();

@@ -96,7 +96,9 @@ public class Arena {
 			_graph.connect(e.get("src").getAsInt(), e.get("dest").getAsInt(), e.get("w").getAsDouble());
 		}
 	}
-
+	/**
+	 * The methode update an edge of pokemon by his location
+	 */
 	public void updatekEdgeForPok(CL_Pokemon pokemon){
 			for (node_data n: _graph.getV()){
 				for (edge_data edge: _graph.getE(n.getKey())){
@@ -112,7 +114,9 @@ public class Arena {
 				}
 			}
 	}
-
+	/**
+	 * The methode update the current pokemons list for the game, in our Arena
+	 */
 	public void updatePoks2Arena(game_service game){
 		String pokList = game.getPokemons();
 		JsonObject poks_object = gson.fromJson(pokList, JsonObject.class);
@@ -126,7 +130,9 @@ public class Arena {
 			this.updatekEdgeForPok(pok_list.get(i));
 		this.setPokemons(pok_list);
 	}
-
+	/**
+	 * The methode update the current agents list for the game, in our Arena
+	 */
 	public void updateAgents2Arena(game_service game){
 		JsonObject agents_object = gson.fromJson(game.getAgents(), JsonObject.class);
 		JsonArray agents_array = agents_object.get("Agents").getAsJsonArray();
@@ -137,7 +143,9 @@ public class Arena {
 		}
 		this.setAgents(agents_list);
 	}
-
+	/**
+	 * The methode checks if all the agents already ate
+	 */
 	public boolean everyAgentAlreadyAte(){
 		for (int i=0; i<this.getAgents().size(); i++){
 			if(this.getAgents().get(i).getDest()!=-1)
@@ -145,7 +153,9 @@ public class Arena {
 		}
 		return true;
 	}
-
+	/**
+	 * Average speed of the agents
+	 */
 	public int avgSpeed(){
 		double avg=0;
 		for (int i=0; i<this.getAgents().size(); i++)
@@ -154,13 +164,9 @@ public class Arena {
 		return (int)(avg);
 	}
 
-	public boolean everyAgentInTheDest(){
-		for (int i=0; i<this.getAgents().size(); i++)
-			if (this.getAgents().get(i).getDest()>-1)
-				return false;
-		return true;
-	}
-
+	/**
+	 * Average weight of al the edges
+	 */
 	public int avgWeight(){
 		double sum=0;
 		for (node_data n: _graph.getV()){

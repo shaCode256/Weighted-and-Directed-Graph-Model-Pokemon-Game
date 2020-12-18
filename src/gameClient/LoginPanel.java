@@ -12,8 +12,8 @@ import java.lang.module.ModuleFinder;
 
 public class LoginPanel extends JPanel implements ActionListener {
     private JButton button;
-    JTextField fieldID, fieldLevel;
-    JLabel labelID, labelLevel;
+    private JTextField fieldID, fieldLevel;
+    private JLabel labelID, labelLevel;
 
     public LoginPanel(){
         super();
