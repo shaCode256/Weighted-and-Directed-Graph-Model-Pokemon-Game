@@ -19,7 +19,7 @@ public class CL_Agent {
 		private CL_Pokemon pokemonTaeget;
 		private List<node_data> path=new LinkedList<>();
 
-    /**Constructor
+    /** Constructor for an CL_Agent
      */
     public CL_Agent(JsonObject agent) {
         this.id = agent.get("id").getAsInt();
@@ -36,24 +36,55 @@ public class CL_Agent {
         pos = geo;
     }
 
+    /**
+     *This function returns the src nodeis key of the edge that this pokemon is located on.
+     */
     public int getSrc() {return src; }
 
+    /**
+     *This function returns the dest node's key of the edge that this pokemon is located on.
+     */
     public int getDest(){return dest;}
 
-    public void setPokemonTaeget (CL_Pokemon p){
+    /**
+     *This function sets the pokemon target of an agent, which means tells this agent,
+     * that its pokemon target is the CL-pokemon passed to this function.
+     */
+    public void setPokemonTarget(CL_Pokemon p){
         this.pokemonTaeget = p;
     }
 
+    /**
+     *This function returns the CL_pokemon target of an agent.
+     */
     public CL_Pokemon getTarget(){return this.pokemonTaeget;}
 
+    /**
+     *This function returns the GeoLocation of the agent.
+     */
     public geo_location getLocation(){return this.pos;}
 
+    /**
+     *This function returns the speed of an agent.
+     */
     public double getSpeed(){return this.speed;}
 
+    /**
+     *This function returns the value of an agent, which means how much points he earned
+     * at the moment you call the function on it.
+     */
     public double getValue(){return this.value;}
 
+    /**
+     *This function sets the path (List<node_data>)
+     * that this agent has to go through, to catch his desired pokemon, its target.
+     */
     public void setPath(List<node_data>list){path=list;}
 
+    /**
+     *This function returned the path (List<node_data>)
+     * that this agent has to go through, to catch his desired pokemon, its target.
+     */
     public List<node_data> getPath(){return this.path;}
 
 

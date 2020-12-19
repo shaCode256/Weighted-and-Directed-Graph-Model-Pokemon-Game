@@ -21,7 +21,9 @@ public class MyPanel extends JPanel implements MouseListener {
     private gameClient.util.Range2Range _w2f;
     private JLabel stage, time, grade, moves;
 
-
+    /**
+     * This function creates a panel of this game's Arena.
+     */
     public MyPanel(Arena _ar){
         super();
         this.setLayout(null);
@@ -36,6 +38,9 @@ public class MyPanel extends JPanel implements MouseListener {
         this.add(time);
     }
 
+    /**
+     * This function paint the components for the game.
+     */
     @Override
     public void paintComponent(Graphics g){
         int w = this.getWidth();
@@ -47,6 +52,10 @@ public class MyPanel extends JPanel implements MouseListener {
         drawAgants(g);
         this.info();
     }
+
+    /**
+     * This function updates the frame of the game.
+     */
     private void updateFrame() {
         Range rx = new Range(30,this.getWidth()-30);
         Range ry = new Range(this.getHeight()-30,60);
@@ -54,7 +63,10 @@ public class MyPanel extends JPanel implements MouseListener {
         directed_weighted_graph g = _ar.getGraph();
         _w2f = Arena.w2f(g,frame);
     }
-
+    /**
+     * This function shows the info of the game, while it runs,
+     * the stage, the score, the moves, the time to end.
+     */
     private void info(){
         int w = this.getWidth();
         int h = this.getHeight();
@@ -72,6 +84,9 @@ public class MyPanel extends JPanel implements MouseListener {
         time.setBounds(400, 2, 200, 50);
     }
 
+    /**
+     * This function draws a game's graph.
+     */
     private void drawGraph(Graphics g) {
         directed_weighted_graph gg = _ar.getGraph();
         Iterator<node_data> iter = gg.getV().iterator();
@@ -87,6 +102,10 @@ public class MyPanel extends JPanel implements MouseListener {
             }
         }
     }
+
+    /**
+     * This function draws the pokemons for the game.
+     */
     private void drawPokemons(Graphics g) {
         List<CL_Pokemon> fs = _ar.getPokemons();
         if(fs!=null) {
@@ -105,6 +124,10 @@ public class MyPanel extends JPanel implements MouseListener {
             }
         }
     }
+
+    /**
+     * This function draws the agents for the game.
+     */
     private void drawAgants(Graphics g) {
         List<CL_Agent> rs = _ar.getAgents();
         //	Iterator<OOP_Point3D> itr = rs.iterator();
@@ -121,12 +144,20 @@ public class MyPanel extends JPanel implements MouseListener {
             }
         }
     }
+
+    /**
+     * This function draws the nodes for the game.
+     */
     private void drawNode(node_data n, int r, Graphics g) {
         geo_location pos = n.getLocation();
         geo_location fp = this._w2f.world2frame(pos);
         g.fillOval((int)fp.x()-r, (int)fp.y()-r, 2*r, 2*r);
         g.drawString(""+n.getKey(), (int)fp.x(), (int)fp.y()-4*r);
     }
+
+    /**
+     * This function draws the edges for the game.
+     */
     private void drawEdge(edge_data e, Graphics g) {
         directed_weighted_graph gg = _ar.getGraph();
         if(gg.getNode(e.getSrc())!=null && gg.getNode(e.getDest())!=null){

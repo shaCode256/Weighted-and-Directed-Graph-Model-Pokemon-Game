@@ -14,16 +14,27 @@ public class DWGraph_DS implements directed_weighted_graph{
     private int counterEdge =0;
     private int mc = 0;
 
+    /**
+     * returns the node_data by the node_id,
+     * @param key - the node_id
+     * @return the node_data by the node_id, null if none.
+     */
     @Override
     public node_data getNode(int key) {
         if (this.groupNodes.containsKey(key)) {
             return groupNodes.get(key);
         }
         return null;
-    }  //good!
+    }
 
+    /**
+     * returns the data of the edge (src,dest), null if none.
+     * Note: this method should run in O(1) time.
+     * @param src
+     * @param dest
+     * @return
+     */
     @Override
-
     public edge_data getEdge(int src, int dest) { //check whether it should return null if there is no such edge.
         if(groupEdges.containsKey(src)){
             if (groupEdges.get(src).containsKey(dest)){
@@ -34,8 +45,13 @@ public class DWGraph_DS implements directed_weighted_graph{
         return null;
     }
 
+    /**
+     * adds a new node to the graph with the given node_data.
+     * Note: this method should run in O(1) time.
+     * @param n
+     */
     @Override
-    public void addNode(node_data n) { //to go through later.
+    public void addNode(node_data n) {
         int key= n.getKey();
         if (groupNodes.containsKey(key)){
             return;
@@ -51,6 +67,13 @@ public class DWGraph_DS implements directed_weighted_graph{
         }
     }
 
+    /**
+     * Connects an edge with weight w between node src to node dest.
+     * * Note: this method should run in O(1) time.
+     * @param src - the source of the edge.
+     * @param dest - the destination of the edge.
+     * @param w - positive weight representing the cost (aka time, price, etc) between src-->dest.
+     */
     @Override
     public void connect(int src, int dest, double w) {
         if(w<0){
@@ -87,11 +110,24 @@ public class DWGraph_DS implements directed_weighted_graph{
         }
     }
 
+    /**
+     * This method returns a pointer (shallow copy) for the
+     * collection representing all the nodes in the graph.
+     * Note: this method should run in O(1) time.
+     * @return Collection<node_data>
+     */
     @Override
     public Collection<node_data> getV() {
         return this.groupNodes.values();
     }
 
+    /**
+     * This method returns a pointer (shallow copy) for the
+     * collection representing all the edges getting out of
+     * the given node (all the edges starting (source) at the given node).
+     * Note: this method should run in O(k) time, k being the collection size.
+     * @return Collection<edge_data>
+     */
     @Override
     public Collection<edge_data> getE(int node_id) { //this one depends on the complexity needed. should check which one is needed,
         //as it might require a change in the groupEdges hashmap.
@@ -101,6 +137,13 @@ public class DWGraph_DS implements directed_weighted_graph{
         return null;
     }
 
+    /**
+     * Deletes the node (with the given ID) from the graph -
+     * and removes all edges which starts or ends at this node.
+     * This method should run in O(k), V.degree=k, as all the edges should be removed.
+     * @return the data of the removed node (null if none).
+     * @param key
+     */
     @Override
     public node_data removeNode(int key) {
          node_data removedata=null; //should it return the removed node_data?
@@ -122,6 +165,12 @@ public class DWGraph_DS implements directed_weighted_graph{
         return removedata;
     }
 
+    /**
+     * Deletes the edge from the graph,
+     * Note: this method should run in O(1) time.
+     * @param src
+     * @param dest
+     */
     @Override
     public void removeEdge(int src, int dest) {
         if (!this.groupNodes.containsKey(src) || !this.groupNodes.containsKey(dest)) {
@@ -142,25 +191,46 @@ public class DWGraph_DS implements directed_weighted_graph{
         }
     }    //check if needs to remove this semicolon
 
+    /** Returns the number of vertices (nodes) in the graph.
+     * Note: this method should run in O(1) time.
+     * @return
+     */
     @Override
     public int nodeSize() {
         return this.groupNodes.size();
     }
 
+    /**
+     * Returns the number of edges (assume directional graph).
+     * Note: this method should run in O(1) time.
+     * @return
+     */
     @Override
     public int edgeSize() {
         return this.counterEdge;
     }
 
+    /**
+     * Returns the Mode Count - for testing changes in the graph.
+     * @return
+     */
     @Override
     public int getMC() {
         return this.mc;
     }
 
+    /**
+     * Initialize the Mode Count to 0, for testing changes in the graph.
+     * @return
+     */
     public void initMc() {
         mc=0;
     }
 
+    /**
+     * Checks and returns if two graphs are identical, by their structure and nodes.
+     * return true if they are, and false if they're not.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

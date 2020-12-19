@@ -15,6 +15,9 @@ public class LoginPanel extends JPanel implements ActionListener {
     private JTextField fieldID, fieldLevel;
     private JLabel labelID, labelLevel;
 
+    /**
+     * This function configures the login panel of this game.
+     */
     public LoginPanel(){
         super();
         this.setLayout(null);

@@ -2,15 +2,10 @@ package gameClient;
 import Server.Game_Server_Ex2;
 import api.*;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Ex2 implements Runnable{
     public static int loginID, level;
@@ -25,6 +20,9 @@ public class Ex2 implements Runnable{
     private Gson gson = new Gson();
 
 
+    /**
+     *the main method for this class. it builds a frame and calls the game's client.
+     */
     public static void main(String[] args)  throws JSONException {
         client= new Thread(new Ex2());
         frame.setSize(1000, 700);
@@ -39,6 +37,10 @@ public class Ex2 implements Runnable{
         }
     }
 
+    /**
+     *The run method- uses, just like its name, to run a game. it calls all the needed functions
+     * for that
+     */
     @Override
     public void run() {
         frame.remove(enter);
@@ -75,6 +77,7 @@ public class Ex2 implements Runnable{
         }
         game.stopGame();
     }
+
     /**
      * Init the game: the methode gets data from the server, and updates the zone:
      * the graph, agents, pokemons. Every agent was located on thr src of his pokemon
@@ -91,14 +94,15 @@ public class Ex2 implements Runnable{
             game.addAgent(pok_list.get(i).getSrc());
         zone.updateAgents2Arena(game);
         for (int i=0; i<zone.getAgents().size(); i++)
-            zone.getAgents().get(i).setPokemonTaeget(pok_list.get(i));
+            zone.getAgents().get(i).setPokemonTarget(pok_list.get(i));
         panel=new MyPanel(zone);
         frame.add(panel);
         frame.setVisible(true);
     }
+
     /**
      * In the first catch, every agent catches the pokemon, by order of value:
-     * The first one, catches the max value.
+     * The first one, catches the max valued pokemon.
      */
     private void firstCatch (game_service game){
         for (int i = 0; i < zone.getAgents().size(); i++)
@@ -107,10 +111,14 @@ public class Ex2 implements Runnable{
         zone.updatePoks2Arena(game);
         zone.updateAgents2Arena(game);
         for (int i = 0; i < zone.getAgents().size(); i++)
-            zone.getAgents().get(i).setPokemonTaeget(pok_list.get(i));
+            zone.getAgents().get(i).setPokemonTarget(pok_list.get(i));
     }
+
     /**
-     * The main astrategy:
+     * The main strategy of the agents, as for catching pokemons:
+     * Looks for the closest pokemon for every agent, uses
+     * shortestPathDist & shortestPath methods
+     * Looks for the pokemon with the closest src node.
      */
     private void pokemonsCatch(game_service game){
         zone.updatePoks2Arena(game);
@@ -125,7 +133,7 @@ public class Ex2 implements Runnable{
                 }
             }
             zone.getAgents().get(i).setPath(algo.shortestPath(zone.getAgents().get(i).getSrc(), zone.getPokemons().get(inexOfTarget).getSrc()));
-            zone.getAgents().get(i).setPokemonTaeget(zone.getPokemons().get(inexOfTarget));
+            zone.getAgents().get(i).setPokemonTarget(zone.getPokemons().get(inexOfTarget));
         }
         for (int i = 0; i<zone.getAgents().size(); i++){
             if (zone.getAgents().get(i).getPath().size()==1)
@@ -137,7 +145,9 @@ public class Ex2 implements Runnable{
     }
 
     /**
-     * the methode sorts pokemon's list from the max value to minimum
+     * this method sorts the pokemons list by their value-
+     * from the max to the minimun values.
+     * this helps the strategy of the agents- to decide which pokemon to go catch first.
      */
         private static LinkedList<CL_Pokemon> max2MinValue (LinkedList < CL_Pokemon > pok_list) {
             LinkedList<CL_Pokemon> list = new LinkedList<>();

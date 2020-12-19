@@ -174,6 +174,9 @@ public class DWGraph_Algo implements dw_graph_algorithms {
     //and adjust it as implemented here.
     //think about using a COUNTER istead of going through all the nodes
 
+    /**
+     * This function performs a DFS on a given graph and beginning vertex.
+     */
     void DFS(directed_weighted_graph myGraph, int vertex) {
         ArrayList<node_data> neilist = new ArrayList<>();
         ((NodeData)myGraph.getNode(vertex)).setTagB(1); // 1- mark it as a VISITED node

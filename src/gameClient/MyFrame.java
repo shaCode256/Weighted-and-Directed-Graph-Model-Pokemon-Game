@@ -26,6 +26,9 @@ public class MyFrame extends JFrame{
     private MyPanel panel;
     private gameClient.util.Range2Range _w2f;
 
+    /**
+     * This function configures the frame.
+     */
     public MyFrame(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }

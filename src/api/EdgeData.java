@@ -59,6 +59,7 @@ public class EdgeData implements edge_data {
      * which can be used be algorithms
      * @return
      */
+
     @Override
     public int getTag() {
         return this.tag;
@@ -73,10 +74,16 @@ public class EdgeData implements edge_data {
         this.tag = t;
     }
 
+    /**
+     * This method returns this edge's edge_data
+     */
     public edge_data getEdge(int src, int dest){
         return this;
     }
 
+    /**
+     * This method allows setting the "weight" value of an edge
+     */
     public void setWeight (double weight){
         this.weight = weight;
     }

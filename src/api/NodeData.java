@@ -158,10 +158,16 @@ public class NodeData implements node_data {
         return "NodeData{key=" + key + '}';
     }
 
+    /**
+     * This functio sets the dub value of this NodeData
+     */
     public void setDub(double e){
         this.dub=e;
     }
 
+    /**
+     * This function sets the conuter of this NodeData.
+     */
     public void setCounter(int count) {
         counter =count;
     }

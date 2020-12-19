@@ -13,23 +13,34 @@ public class GeoLocation implements geo_location {
         this.z=z;
     }
 
+    /**
+     * This method returns this GeoLocation's X value
+     */
     @Override
     public double x() {
         return this.x;
     }
 
+    /**
+     * This method returns this GeoLocation's Y value
+     */
     @Override
     public double y() {
         return this.y;
     }
 
+    /**
+     * This method returns this GeoLocation's Z value
+     */
     @Override
     public double z() {
         return this.z;
     }
+
     /**
-     * This distance from this to g location.
-     * The formula: sqrt of [(x1-x2)^2+(y1-y2)^2+(z1-z2)^2].
+     * This function returns the double distance value from this GeoLocation
+     * to another GeoLocation.
+     * By the formula: sqrt of [(x1-x2)^2+(y1-y2)^2+(z1-z2)^2].
      */
     @Override
     public double distance(geo_location g) {
