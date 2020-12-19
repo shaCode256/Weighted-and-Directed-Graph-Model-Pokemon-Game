@@ -16,7 +16,7 @@ public class CL_Agent {
 		private int dest;
 		private double speed;
 		private geo_location pos;
-		private CL_Pokemon pokemonTaeget;
+		private CL_Pokemon pokemonTarget;
 		private List<node_data> path=new LinkedList<>();
 
     /** Constructor for an CL_Agent
@@ -37,7 +37,7 @@ public class CL_Agent {
     }
 
     /**
-     *This function returns the src nodeis key of the edge that this pokemon is located on.
+     *This function returns the src node's key of the edge that this pokemon is located on.
      */
     public int getSrc() {return src; }
 
@@ -51,13 +51,13 @@ public class CL_Agent {
      * that its pokemon target is the CL-pokemon passed to this function.
      */
     public void setPokemonTarget(CL_Pokemon p){
-        this.pokemonTaeget = p;
+        this.pokemonTarget = p;
     }
 
     /**
      *This function returns the CL_pokemon target of an agent.
      */
-    public CL_Pokemon getTarget(){return this.pokemonTaeget;}
+    public CL_Pokemon getTarget(){return this.pokemonTarget;}
 
     /**
      *This function returns the GeoLocation of the agent.
