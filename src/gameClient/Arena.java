@@ -200,7 +200,7 @@ public class Arena {
 	}
 
 	/**
-	 * This funciton returns the average speed of the agents in this Arena.
+	 * This function returns the average speed of the agents in this Arena.
 	 */
 	public int avgSpeed(){
 		double avg=0;
@@ -211,7 +211,7 @@ public class Arena {
 	}
 
 	/**
-	 * This funciton returns the average weight of the edges in this Arena.
+	 * This function returns the average weight of the edges in this Arena.
 	 */
 	public int avgWeight(){
 		double sum=0;

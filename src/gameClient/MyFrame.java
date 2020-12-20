@@ -14,11 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * This class represents a very simple GUI class to present a
- * game on a graph - you are welcome to use this class - yet keep in mind
- * that the code is not well written in order to force you improve the
- * code and not to take it "as is".
- *
+ * This class is the game's GUI's frame class.
  */
 public class MyFrame extends JFrame{
     private int _ind;
@@ -30,6 +26,7 @@ public class MyFrame extends JFrame{
      * This function configures the frame.
      */
     public MyFrame(){
+        this.setTitle("Catch 'Em All");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }

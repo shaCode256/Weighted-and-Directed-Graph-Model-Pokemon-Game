@@ -13,6 +13,7 @@ public class Ex2 implements Runnable{
     private game_service game;
     private static MyFrame frame = new MyFrame();
     private static MyPanel panel;
+    private static String img= "C:\\Users\\97252\\OneDrive\\שולחן העבודה\\Ex2OopUpdate-master\\Pictures\\pokemonsAsh";
     private static LoginPanel enter=new LoginPanel();
     private static Arena zone;
     private LinkedList<CL_Pokemon> pok_list = new LinkedList<>();
@@ -44,6 +45,7 @@ public class Ex2 implements Runnable{
     @Override
     public void run() {
         frame.remove(enter);
+        frame.setTitle("Catch 'Em All");
         game = Game_Server_Ex2.getServer(level); // you have [0,23] games
         game.login(loginID);
         init(game);
@@ -79,8 +81,9 @@ public class Ex2 implements Runnable{
     }
 
     /**
-     * Init the game: the methode gets data from the server, and updates the zone:
-     * the graph, agents, pokemons. Every agent was located on thr src of his pokemon
+     * Init the game: the method gets data from the server, and updates the zone:
+     * the graph, agents, pokemons. Every agent is located on the edge's src node
+     * that his destined pokemon is on.
      */
     private void init(game_service game) {
         zone=new Arena(game);

@@ -1,19 +1,19 @@
 package gameClient;
 
-import Server.Game_Server_Ex2;
-import api.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.lang.module.ModuleFinder;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class LoginPanel extends JPanel implements ActionListener {
     private JButton button;
     private JTextField fieldID, fieldLevel;
     private JLabel labelID, labelLevel;
+    private BufferedImage img;
 
     /**
      * This function configures the login panel of this game.
@@ -25,8 +25,8 @@ public class LoginPanel extends JPanel implements ActionListener {
         button.setBounds(100, 100, 100, 50);
         this.add(button);
         button.addActionListener(this);
-        labelLevel=new JLabel("level");
-        labelLevel.setBounds(330, 130, 130, 80);
+        labelLevel=new JLabel("Level");
+        labelLevel.setBounds(310, 130, 130, 80);
         this.add(labelLevel);
         fieldLevel=new JTextField();
         fieldLevel.setBounds(300, 100, 100, 50);
@@ -41,8 +41,11 @@ public class LoginPanel extends JPanel implements ActionListener {
         fieldLevel.setBackground(Color.white);
         fieldLevel.setCaretColor(Color.black);
         this.add(fieldID);
-
-
+        try {
+            img = ImageIO.read(new File("Pictures\\pokemonsAsh.png"));
+        } catch (IOException ex) {
+            // do none
+        }
     }
 
     /**
@@ -57,5 +60,11 @@ public class LoginPanel extends JPanel implements ActionListener {
             Ex2.loginID=Integer.parseInt(fieldID.getText());
             Ex2.client.start();
         }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(img, 0, 0, this);
     }
 }

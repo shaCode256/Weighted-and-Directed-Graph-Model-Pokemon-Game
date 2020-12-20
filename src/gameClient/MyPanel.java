@@ -8,11 +8,14 @@ import gameClient.util.Point3D;
 import gameClient.util.Range;
 import gameClient.util.Range2D;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.GregorianCalendar;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class MyPanel extends JPanel implements MouseListener {
     private Arena _ar;
     private gameClient.util.Range2Range _w2f;
     private JLabel stage, time, grade, moves;
+    private BufferedImage img;
 
     /**
      * This function creates a panel of this game's Arena.
@@ -32,24 +36,31 @@ public class MyPanel extends JPanel implements MouseListener {
         this.add(stage);
         grade=new JLabel("score: "+this._ar.getGrade());
         this.add(grade);
-        moves=new JLabel("moves "+this._ar.getSteps());
+        moves=new JLabel("moves: "+this._ar.getSteps());
         this.add(moves);
         time=new JLabel("time to end: "+this._ar.getGame().timeToEnd()/1000);
         this.add(time);
+        try {
+            img = ImageIO.read(new File("Pictures\\lightBlue.png"));
+        } catch (IOException ex) {
+            // do none
+        }
     }
 
     /**
-     * This function paint the components for the game.
+     * This function paints the components for the game.
      */
     @Override
     public void paintComponent(Graphics g){
         int w = this.getWidth();
         int h = this.getHeight();
         g.clearRect(0, 0, w, h);
+        super.paintComponent(g);
+        g.drawImage(img, 0, 0, this);
         this.updateFrame();
         drawGraph(g);
         drawPokemons(g);
-        drawAgants(g);
+        drawAgents(g);
         this.info();
     }
 
@@ -70,18 +81,18 @@ public class MyPanel extends JPanel implements MouseListener {
     private void info(){
         int w = this.getWidth();
         int h = this.getHeight();
-        stage.setText("stage: "+this._ar.getLevel());
+        stage.setText("Level: "+this._ar.getLevel());
         stage.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
-        stage.setBounds(w-300, 2, 200, 50);
-        grade.setText("score: "+this._ar.getGrade());
+        stage.setBounds(170, 2, 200, 50);
+        grade.setText("Score: "+this._ar.getGrade());
         grade.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
-        grade.setBounds(95, 2, 200, 50);
-        moves.setText("moves "+this._ar.getSteps());
+        grade.setBounds(300, 2, 200, 50);
+        moves.setText("Moves: "+this._ar.getSteps());
         moves.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
-        moves.setBounds(200, 2, 200, 50);
-        time.setText("time to end: "+this._ar.getGame().timeToEnd()/1000);
+        moves.setBounds(450, 2, 200, 50);
+        time.setText("Seconds Left: "+this._ar.getGame().timeToEnd()/1000);
         time.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
-        time.setBounds(400, 2, 200, 50);
+        time.setBounds(600, 2, 200, 50);
     }
 
     /**
@@ -97,7 +108,7 @@ public class MyPanel extends JPanel implements MouseListener {
             Iterator<edge_data> itr = gg.getE(n.getKey()).iterator();
             while(itr.hasNext()) {
                 edge_data e = itr.next();
-                g.setColor(Color.gray);
+                g.setColor(Color.black);
                 drawEdge(e, g);
             }
         }
@@ -128,7 +139,7 @@ public class MyPanel extends JPanel implements MouseListener {
     /**
      * This function draws the agents for the game.
      */
-    private void drawAgants(Graphics g) {
+    private void drawAgents(Graphics g) {
         List<CL_Agent> rs = _ar.getAgents();
         //	Iterator<OOP_Point3D> itr = rs.iterator();
         g.setColor(Color.red);
