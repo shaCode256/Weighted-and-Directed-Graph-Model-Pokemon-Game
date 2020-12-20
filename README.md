@@ -1,6 +1,37 @@
-# Project - Weighted and Directed graph model - 12/2020 
+## OPEN SOURCE
+## WRITTEN IN JAVA
+
+# Catch 'Em All! catch pokemons ' AUTOMATED GAME' / Weighted and Directed Graph Model - 12/2020 
+
+## What is this project, CATCH 'EM ALL- POKEMONS | WEIGHTED AND DIRECTED GRAPH, all about?
+
+# Catch 'Em All
+
+The project implements an automated game of catching Pokemons, going around and having fun, 
+just resting on some nodes of a Weighted and Directed graph model, with our Agents.
+You can happily watch our agents try to catch the pokemons, 
+when they need to earn the most points,
+By catching the most valueble pokemons.
+
+## Features 24 DIFFERENT levels! with RAISING DIFFICULITY.
+
+![WelcomeScreen](https://github.com/Dvir-Segal/Ex2OopUpdate/blob/master/Pictures/WelcomeScreen.PNG)
+
+## Let's take a brief look inside-
+
+## Level 17!
+
+![level17](https://github.com/Dvir-Segal/Ex2OopUpdate/blob/master/Pictures/Level17.PNG)
+
+# DWGraph_DS
 
 The project implements a Weighted and Directed graph model, using data structures including HashMaps to represent the nodes and neighborhood relationships between them.
+
+Creating a graph and nodes (part of a test):
+![Test_graph](https://github.com/Dvir-Segal/Ex2OopUpdate/blob/master/Pictures/DWGraph_DSTest.PNG)
+
+Another test for the DWGraph:
+![Running Tests0](https://github.com/Dvir-Segal/Ex2OopUpdate/blob/master/Pictures/DWGraph_DS.PNG)
 
 **This graph functions include:**
 
