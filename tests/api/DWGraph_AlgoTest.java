@@ -25,6 +25,11 @@ class DWGraph_AlgoTest {
 
     long start = new Date().getTime();
 
+    /**
+     *     Executed before each test. It is used to prepare the test environment
+     *     (e.g., read input data, initialize the class).
+     */
+
     @BeforeEach
     void setUp() {
         start = new Date().getTime();
@@ -101,6 +106,9 @@ class DWGraph_AlgoTest {
 
     }
 
+    /**
+     * This function returns the time that each test took
+     */
     @AfterEach
     void tearDown() {
         long end = new Date().getTime();
@@ -109,17 +117,26 @@ class DWGraph_AlgoTest {
 
     }
 
+    /**
+     * This function checks if the algorithms getGraph() method works ok
+     */
     @Test
     void init() {
         assertEquals(ag1.getGraph() ,g1); //the getGraph will be correct if&only the init is correct.
     }
 
+    /**
+     * This function checks if the getGraph() method works ok
+     */
     @Test
     void getGraph() {
         System.out.println(ANSI_GREEN+"Checking if the getGraph works ok..."+ANSI_RESET);
         assertEquals(ag1.getGraph(), g1);
     }
 
+    /**
+     * This function checks if the graph (deep) copy() method works ok
+     */
     @Test
     void copy() {
         System.out.println(ANSI_GREEN+"Checking if the copy method works ok..."+ANSI_RESET);
@@ -149,6 +166,9 @@ class DWGraph_AlgoTest {
         assertEquals(countNodes, g1.nodeSize());
     }
 
+    /**
+     * This function checks if the isConnected() method works ok
+     */
     @Test
     void isConnected() {
         System.out.println(ANSI_GREEN+"Checking if the isConnected works ok..."+ANSI_RESET);
@@ -158,6 +178,9 @@ class DWGraph_AlgoTest {
         assertFalse(ag2.isConnected()); //ag2 is connected.
     }
 
+    /**
+     * This function checks if the shortestPathDist() method works ok
+     */
     @Test
     void shortestPathDist() {
         System.out.println("g2.getV is "+g2.getV());
@@ -168,11 +191,18 @@ class DWGraph_AlgoTest {
         //     System.out.println(g.getNode(
     }
 
+    /**
+     * This function checks if the getV() method works ok
+     */
     @Test
     void ifGetVWorks(){
         System.out.println("meaningGetVWorks");
         System.out.println("the neighbors are "+g1.getE(2));
     }
+
+    /**
+     * This function checks if the shortestPath() method works ok
+     */
     @Test
     void shortestPath() {
         System.out.println("g1.getV is "+g1.getV());
@@ -195,6 +225,9 @@ class DWGraph_AlgoTest {
         System.out.println();
     }
 
+    /**
+     * This function checks if the isConnected() method works ok, by testing it on a connected graph
+     */
     public static DWGraph_DS Connected(){
         DWGraph_DS g = new DWGraph_DS();
         for (int i = 0; i < 5; i++) {
@@ -224,6 +257,9 @@ class DWGraph_AlgoTest {
         return g;
     }
 
+    /**
+     * This function checks if the isConnected() method works ok, by testing it on a not- connected graph
+     */
     public static DWGraph_DS IsNotConnected(){
         DWGraph_DS g = new DWGraph_DS();
         for (int i = 0; i < 5; i++) {
@@ -251,6 +287,9 @@ class DWGraph_AlgoTest {
         return g;
     }
 
+    /**
+     * This function checks if the isConnected() method works ok
+     */
     @Test
     void testIsConnected(){
         DWGraph_DS g1 = Connected();
@@ -279,6 +318,9 @@ class DWGraph_AlgoTest {
         assertTrue(operator.getGraph().equals(Connected()));
     }
 
+    /**
+     * This function checks if the shortestPathDist() method works ok
+     */
     @Test
     void testShortestPathDist(){
         DWGraph_Algo operator = new DWGraph_Algo();

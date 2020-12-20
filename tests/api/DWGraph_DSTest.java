@@ -123,6 +123,7 @@ class DWGraph_DSTest {
         assertFalse(g.edgeSize()!=5);
 
     }
+
     /**
      * Tests for edgeSize
      */

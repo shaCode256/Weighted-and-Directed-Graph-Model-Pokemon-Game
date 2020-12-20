@@ -11,7 +11,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class NodeDataTest {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
@@ -19,9 +18,12 @@ class NodeDataTest {
     List<node_data> nodes= new ArrayList<>();
     long start = new Date().getTime();
 
+    /**
+     *     Executed before each test. It is used to prepare the test environment
+     *     (e.g., read input data, initialize the class).
+     */
 
-    @BeforeEach //Executed before each test. It is used to prepare the test environment
-        // (e.g., read input data, initialize the class).
+    @BeforeEach
 
     void setUp() {
         start = new Date().getTime();
@@ -47,10 +49,16 @@ class NodeDataTest {
 //        }
     }
 
-    @AfterEach //Executed after each test. It is used to cleanup the test environment
-        // (e.g., delete temporary data, restore defaults). It can also save memory by cleaning up
-        // expensive memory structures.
+    /**
+     * Executed after each test. It is used to cleanup the test environment
+     *         (e.g., delete temporary data, restore defaults). It can also save memory by cleaning up
+     *          expensive memory structures.
+     */
+    @AfterEach
 
+    /**
+     * This function returns the time that this test took
+     */
     void tearDown() {
         long end = new Date().getTime();
         double dt = (end-start)/1000.0;
@@ -58,6 +66,9 @@ class NodeDataTest {
 
     }
 
+    /**
+     * This function checks if the keys getting of the nodes is ok
+     */
     @Test
     void getKey() {
         System.out.println(ANSI_GREEN+"Checking if keys of nodes are ok..."+ANSI_RESET);
@@ -66,6 +77,9 @@ class NodeDataTest {
         }
     }
 
+    /**
+     * This function checks if the info getting of the nodes is ok
+     */
     @Test
     void getInfo() {
         System.out.println(ANSI_GREEN+"Checking if getting infos of nodes is ok..."+ANSI_RESET);
@@ -81,6 +95,9 @@ class NodeDataTest {
 
     }
 
+    /**
+     * This function checks if the info setting of the nodes is ok
+     */
     @Test
     void setInfo() {
         System.out.println(ANSI_GREEN+"Checking if setting infos of nodes is ok..."+ANSI_RESET);
@@ -96,6 +113,9 @@ class NodeDataTest {
         }
     }
 
+    /**
+     * This function checks if the tag getting of the nodes is ok
+     */
     @Test
     void getTag() { //check the get tags, than change some nodes tags, to see if it messes up anything.
         System.out.println(ANSI_GREEN+"Checking if getting tags of nodes is ok..."+ANSI_RESET);
@@ -127,6 +147,9 @@ class NodeDataTest {
         }
     }
 
+    /**
+     * This function checks if the tag setting of the nodes is ok
+     */
     @Test
     void setTag() {
         System.out.println(ANSI_GREEN+"Checking if setting tags of nodes is ok..."+ANSI_RESET);
