@@ -57,7 +57,7 @@ public class LoginPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button){
             Ex2.level=Integer.parseInt(fieldLevel.getText());
-            Ex2.loginID=Integer.parseInt(fieldID.getText());
+            Ex2.loginID=Long.parseLong(fieldID.getText());
             Ex2.client.start();
         }
     }

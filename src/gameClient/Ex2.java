@@ -8,12 +8,13 @@ import org.json.JSONException;
 import java.util.LinkedList;
 
 public class Ex2 implements Runnable{
-    public static int loginID, level;
+    public static int level;
+    public  static long loginID;
     public static Thread client;
     private game_service game;
     private static MyFrame frame = new MyFrame();
     private static MyPanel panel;
-    private static String img= "C:\\Users\\97252\\OneDrive\\щемзп дтбегд\\Ex2OopUpdate-master\\Pictures\\pokemonsAsh";
+    private static String img= "C:\\Users\\97252\\OneDrive\\пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\\Ex2OopUpdate-master\\Pictures\\pokemonsAsh";
     private static LoginPanel enter=new LoginPanel();
     private static Arena zone;
     private LinkedList<CL_Pokemon> pok_list = new LinkedList<>();
@@ -32,7 +33,7 @@ public class Ex2 implements Runnable{
             frame.setVisible(true);
         }
         else {
-            loginID=Integer.parseInt(args[0]);
+            loginID=Long.parseLong(args[0]);
             level=Integer.parseInt(args[1]);
             client.start();
         }
