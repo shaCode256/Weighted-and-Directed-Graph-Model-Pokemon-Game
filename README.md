@@ -1,9 +1,9 @@
 ## OPEN SOURCE
 ## WRITTEN IN JAVA
 
-# Catch 'Em All! catch pokemons ' AUTOMATED GAME' / Weighted and Directed Graph Model - 12/2020 
+# Catch 'Em All! catch pokemons automated game / Weighted and Directed Graph Model - 12/2020 
 
-## What is this project, CATCH 'EM ALL- POKEMONS | WEIGHTED AND DIRECTED GRAPH, all about?
+## What is this project, Catch 'Em All- Pokemons | Weighted and directed Graph, all about?
 
 # Catch 'Em All
 
@@ -71,7 +71,7 @@ Running Tests1:
 !Running Tests2:
 ![Running Tests2](https://github.com/shaCode256/ex1/blob/main/readMePictures/RunTheTests2.png)
 
-GraphAlgo: (rithms, da ;) )
+GraphAlgo(rithms): 
 ![GraphAlgo(rithms)](https://github.com/shaCode256/ex1/blob/main/readMePictures/Graph_Algo.png)
 
 The HashMap of the graph strcture:
