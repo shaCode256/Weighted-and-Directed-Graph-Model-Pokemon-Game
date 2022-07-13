@@ -1,5 +1,5 @@
 ## OPEN SOURCE
-## WRITTEN IN JAVA
+## Written in JAVA
 
 # Catch 'Em All! catch pokemons automated game / Weighted and Directed Graph Model - 12/2020 
 
