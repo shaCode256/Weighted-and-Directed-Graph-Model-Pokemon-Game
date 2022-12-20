@@ -1,5 +1,5 @@
-## OPEN SOURCE
-## Written in JAVA
+## Open source
+## Written in Java
 
 # Catch 'Em All- catch pokemons automated game / Weighted and Directed Graph Model - 12/2020 
 
@@ -13,7 +13,7 @@ You can happily watch our agents try to catch the pokemons,
 when they need to earn the most points,
 By catching the most valueble pokemons.
 
-## Features 24 DIFFERENT levels! with RAISING DIFFICULITY.
+## Features 24 different levels, with raising difficulity.
 
 ![WelcomeScreen](https://github.com/Dvir-Segal/Ex2OopUpdate/blob/master/Pictures/WelcomeScreen.PNG)
 
@@ -46,7 +46,7 @@ Another test for the DWGraph:
 * Checking the connectivity of the graph
 * Deep copy of the graph
 
-Also, there are some RICH TESTS for you to test almost everything in there.
+Also, there are some rich tests for you to test almost everything in there.
 Got any additions/ comments? I would love to hear. 
 
 ## **How to use?**
@@ -97,7 +97,7 @@ Find us at GitHub: ShaCode256@ Dvir-Segal@
 * בדיקת קשירות הגרף
 * העתקה עמוקה של הגרף
 
-## תמונות למעלה!
+## תמונות למעלה
 
 *איך להשתמש?**  הורידו את הקוד ושמרו אותו כך שתוכלו לגשת אליו**. 
 אפשר להתחיל ביצירת גרף על ידי הפקודה  WGraph_DS g = new WGraph_DS<>(); , 
