@@ -3,10 +3,6 @@
 
 # Catch 'Em All- catch pokemons automated game / Weighted and Directed Graph Model - 12/2020 
 
-## What is this project, Catch 'Em All- Pokemons | Weighted and directed Graph, all about?
-
-# Catch 'Em All
-
 The project implements an automated game of catching Pokemons, going around and having fun, 
 just resting on some nodes of a Weighted and Directed graph model, with our Agents.
 You can happily watch our agents try to catch the pokemons, 
